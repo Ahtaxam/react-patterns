@@ -8,6 +8,11 @@ import LargePersonListItem from "./components/LayoutComponent/ListItemComponent/
 import SmallProductListItems from "./components/LayoutComponent/ListItemComponent/Product/SmallProductListItems";
 import LargerProductListItems from "./components/LayoutComponent/ListItemComponent/Product/LargerProductListItems";
 import Modal from "./components/LayoutComponent/Modal";
+import Posts from "./components/ContainerComponent/Posts";
+import Users from "./components/ContainerComponent/Users";
+import Post from "./components/ContainerComponent/Post";
+import User from "./components/ContainerComponent/User";
+
 
 const Persons = [
   {
@@ -100,14 +105,22 @@ function App() {
         resourceName="product"
         itemComponent={LargerProductListItems}
       /> */}
-      <Modal>
+      {/* <Modal>
         {" "}
         <RegularList
           items={Products}
           resourceName="product"
           itemComponent={SmallProductListItems}
         />
-      </Modal>
+      </Modal> */}
+
+      {/* <Posts>
+        <Users/>
+      </Posts> */}
+
+      <Post id="5">
+        <User/>
+      </Post>
     </>
   );
 }
