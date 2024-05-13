@@ -12,7 +12,8 @@ import Posts from "./components/ContainerComponent/Posts";
 import Users from "./components/ContainerComponent/Users";
 import Post from "./components/ContainerComponent/Post";
 import User from "./components/ContainerComponent/User";
-
+import ResourceLoader from "./components/ContainerComponent/ResourceLoader";
+import DataSourceLoader from "./components/ContainerComponent/DataSource";
 
 const Persons = [
   {
@@ -74,6 +75,11 @@ const Products = [
   },
 ];
 
+const getdataFromServer = async (url) => {
+  const data = await fetch("https://jsonplaceholder.typicode.com" + url);
+  return data.json();
+};
+
 function App() {
   return (
     <>
@@ -118,9 +124,18 @@ function App() {
         <Users/>
       </Posts> */}
 
-      <Post id="5">
+      {/* <Post id="7">
         <User/>
-      </Post>
+      </Post> */}
+      <ResourceLoader resourceUrl="/posts/34" resourceName="data">
+        <User />
+      </ResourceLoader>
+      {/* <ResourceLoader resourceUrl="/posts" resourceName="data">
+        <Users />
+      </ResourceLoader> */}
+      <DataSourceLoader getDataFunc={() => getdataFromServer("/posts")} resourceName="data" >
+        <Users />
+      </DataSourceLoader>
     </>
   );
 }
